@@ -6,23 +6,38 @@
 
 #define something thing
 
-volatile unsigned char* 
-volatile unsigned char* 
-volatile unsigned char* 
-volatile unsigned char* 
-volatile unsigned char* 
-volatile unsigned char* 
-volatile unsigned char* 
-volatile unsigned char* 
 
-// LCD pins to pins in the Arduino
+
+// UART pointers
+volatile unsigned char* my_UCSR0A = (unsigned char*)0x00C0;
+volatile unsigned char* my_UCSR0B = (unsigned char*)0x00C1;
+volatile unsigned char* my_UCSR0C = (unsigned char*)0x00C2;
+volatile unsigned int* my_UBRR0 = (unsigned int*)0x00C4;
+volatile unsigned char* my_UDR0 = (unsigned char*)0x00C6;
+
+// ADC pointers
+volatile unsigned char* my_ADMUX = (unsigned char*)0x7C;
+volatile unsigned char* my_ADCSRA = (unsigned char*)0x7A;
+volatile unsigned int* my_ADC_DATA = (unsigned int*)0x78;
+
+// LCD now recognized; LCD pins to pins in the Arduino
 const int RS = 43, EN = 45 D4 = 50, D5 = 51, D6 = 52, D7 = 53;
 LiquidCrystal lcd(RS, EN, D4, D5, D6, D7);
 
+// stepper now recognized, 100 steps per revolution
 steps = 100;
 Stepper stepper(steps, 27, 29, 31, 33);
 
+// Real Time Clock now recognized
+RTC_DS1307 rtc;
 
+// Temperature and Humidity Module now recognized
+DHT dht11(8, DHT11);
+
+// water sensor setup
+const int waterSensor = 37;
+const int startStop = 10;
+const int reset = 12;
 
 void setup(){
   U0Init(9600);
