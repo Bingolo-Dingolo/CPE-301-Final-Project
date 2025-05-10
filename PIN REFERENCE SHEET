@@ -1,0 +1,85 @@
+PINS FOR CPE 301 FINAL PROJECT 
+
+LED PINS 
+
+Green – Digital 2 -  
+
+Blue – Digital 3 - 
+
+Yellow – Digital 4 - 
+
+Red – Digital 5 -  
+
+ 
+
+LCD 
+
+VDD – Digital 6 - 
+
+V0 – Digital 7 -  
+
+RS – Digital 43 - 
+
+RW – Digital 44 - 
+
+E – Digital 45 
+
+D4 – Digital 50 
+
+D5 – Digital 51 
+
+D6 – Digital 52 
+
+D7 – Digital 53 
+
+ 
+
+WATER LEVEL 
+
+GND – GND 
+
+PWR – 5V 
+
+Sensor Data – Digital 37 
+
+ 
+
+FAN MOTOR 
+
+Control – Digital 41 
+
+ 
+
+STEPPER MOTOR 
+
+1N1 – Digital 27 
+
+1N2 – Digital 29 
+
+1N3 – Digital 31 
+
+1N4 – Digital 33 
+
+BACK BUTTON – DIGITAL 25 
+FORWARD BUTTON - DIGITAL 39
+ 
+
+RTC 
+
+SDA – Digital 20 – SDA 
+
+SCL – Digital 21 – SCL 
+
+32K – Digital 30 
+
+SQW – Digital 34 
+
+ 
+
+DHT11 TEMP SENSOR 
+
+Sensor IN – Digital 8 
+
+ 
+
+ 
