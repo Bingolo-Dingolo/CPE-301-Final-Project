@@ -1,11 +1,11 @@
 PINS FOR CPE 301 FINAL PROJECT 
 
 RESET - DIGITAL 12
-START/STOP - DIGITAL 10
+START/STOP - DIGITAL 2
 
 LED PINS 
 
-Green – Digital 2 -  
+Green – Digital 6 -  
 
 Blue – Digital 3 - 
 
