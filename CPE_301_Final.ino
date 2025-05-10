@@ -1,7 +1,7 @@
 #include <LiquidCrystal.h> // lcd display
 #include <Stepper.h> // stepper motor
 #include <RTClib.h> // real time clock
-#include <Wire.h> // real time clock
+#include <Wire.h> // real time clock also
 #include <DHT.h> // temp and humidity module
  
 volatile unsigned char* PIN_A = (unsigned char *)0x20;
@@ -63,6 +63,7 @@ DHT dht11(8, DHT11);
 const int waterSensor = 37;
 const int startStop = 10;
 const int reset = 12;
+const int waterMin = 250;
 
 // fan motor setup
 const int fanControl = 41;
