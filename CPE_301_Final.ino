@@ -3,22 +3,45 @@
 #include <RTClib.h> // real time clock
 #include <Wire.h> // real time clock
 #include <DHT.h> // temp and humidity module
+ 
+volatile unsigned char* PIN_A = (unsigned char *)0x20;
+volatile unsigned char* DDR_A = (unsigned char *)0x21;
+volatile unsigned char* PORT_A = (unsigned char *)0x22;
 
-#define something thing
+volatile unsigned char* PIN_B = (unsigned char*)0x23;
+volatile unsigned char* DDR_B = (unsigned char*)0x24;
+volatile unsigned char* PORT_B = (unsigned char*)0x25;
 
+volatile unsigned char* PIN_C = (unsigned char*)0x26;
+volatile unsigned char* DDR_C = (unsigned char*)0x27;
+volatile unsigned char* PORT_C = (unsigned char*)0x28;
 
+volatile unsigned char* PIN_D = (unsigned char*)0x29;
+volatile unsigned char* DDR_D = (unsigned char*)0x2A;
+volatile unsigned char* PORT_D = (unsigned char*)0x2B;
 
-// UART pointers
+volatile unsigned char* PIN_E = (unsigned char*)0x2C
+volatile unsigned char* DDR_E = (unsigned char*)0x2D;
+volatile unsigned char* PORT_E = (unsigned char*)0x2E;
+
 volatile unsigned char* my_UCSR0A = (unsigned char*)0x00C0;
 volatile unsigned char* my_UCSR0B = (unsigned char*)0x00C1;
 volatile unsigned char* my_UCSR0C = (unsigned char*)0x00C2;
 volatile unsigned int* my_UBRR0 = (unsigned int*)0x00C4;
 volatile unsigned char* my_UDR0 = (unsigned char*)0x00C6;
 
-// ADC pointers
+volatile unsigned char* my_EIMSK = (unsigned char*)0x3D;
+volatile unsigned char* my_EICRA = (unsigned char*)0x69;
+
 volatile unsigned char* my_ADMUX = (unsigned char*)0x7C;
 volatile unsigned char* my_ADCSRA = (unsigned char*)0x7A;
 volatile unsigned int* my_ADC_DATA = (unsigned int*)0x78;
+
+volatile unsigned char* my_TCCR1A = (unsigned char*)0x80;
+volatile unsigned char* my_TCCR1B = (unsigned char*)0x81;
+volatile unsigned char* my_TIMSK1 = (unsigned char*)0x6F;
+volatile unsigned int* my_TCNT1 = (unsigned  int*)0x84;
+
 
 // LCD now recognized; LCD pins to pins in the Arduino
 const int RS = 43, EN = 45 D4 = 50, D5 = 51, D6 = 52, D7 = 53;
@@ -27,6 +50,8 @@ LiquidCrystal lcd(RS, EN, D4, D5, D6, D7);
 // stepper now recognized, 100 steps per revolution
 steps = 100;
 Stepper stepper(steps, 27, 29, 31, 33);
+const int ventForward = 39
+const int ventBackward = 25
 
 // Real Time Clock now recognized
 RTC_DS1307 rtc;
@@ -39,9 +64,19 @@ const int waterSensor = 37;
 const int startStop = 10;
 const int reset = 12;
 
+// fan motor setup
+const int fanControl = 41;
+
 void setup(){
   U0Init(9600);
 
+  lcd.begin(16,2);
+  rtc.begin();
+  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+  stepper.setspeed(10)
+  lcd.clear();
+  wire.begin();
+  
   
 }
 
