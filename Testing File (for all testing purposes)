@@ -22,3 +22,42 @@ void loop() {
 
   delay(1000);
 }
+
+
+// Below is the code used to test the Real Time Clock module (found at https://docs.arduino.cc/tutorials/uno-r4-minima/rtc/)
+
+#include "RTC.h"
+
+void setup() {
+  Serial.begin(9600);
+
+  RTC.begin();
+  
+  RTCTime startTime(9, Month::MAY, 2025, 13, 37, 00, DayOfWeek::FRIDAY, SaveLight::SAVING_TIME_ACTIVE);
+
+  RTC.setTime(startTime);
+}
+
+void loop() {
+  RTCTime currentTime;
+
+  // Get current time from RTC
+  RTC.getTime(currentTime);
+
+  // Print out date (DD/MM//YYYY)
+  Serial.print(currentTime.getDayOfMonth());
+  Serial.print("/");
+  Serial.print(Month2int(currentTime.getMonth()));
+  Serial.print("/");
+  Serial.print(currentTime.getYear());
+  Serial.print(" - ");
+
+  // Print time (HH/MM/SS)
+  Serial.print(currentTime.getHour());
+  Serial.print(":");
+  Serial.print(currentTime.getMinutes());
+  Serial.print(":");
+  Serial.println(currentTime.getSeconds());
+
+  delay(1000);
+}
